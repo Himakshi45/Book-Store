@@ -6,7 +6,7 @@ import Books from "./Books";
 import Contact from "./Contact";
 //import Cart from "./Cart";
 //import SingleProduct from "./SingleProduct";
-//import ErrorPage from "./ErrorPage";
+import ErrorPage from "./ErrorPage";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import Header from "./components/Header";
@@ -50,7 +50,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/books" element={<Books/>} />
-         
+          <Route path="*" element={<ErrorPage/>} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login/>}/>
          <Route path="/register" element={<Register/>}/>
