@@ -83,6 +83,7 @@ footer p {
             </form>
             <footer>
                 <p>First time? <Link to="/register">Create an account</Link>.</p>
+                <p><Link to ="/admin">Are You a Seller?</Link></p>
                 <p><Link to="/">Back to Homepage</Link>.</p>
             </footer>
         </div>

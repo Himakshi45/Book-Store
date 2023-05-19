@@ -14,7 +14,7 @@ const addBook = async (req, res) => {
       title,
       author,
       price,
-      image: imageUrl.url,
+      image,
     });
     await newBook.save();
     await session.commitTransaction();

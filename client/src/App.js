@@ -12,6 +12,7 @@ import { ThemeProvider } from "styled-components";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Login from "./Login";
+import Admin from "./admin";
 import Register from "./Register";
 import ForgotPassword from "./ForgotPassword";
 
@@ -55,6 +56,7 @@ const App = () => {
           <Route path="/login" element={<Login/>}/>
          <Route path="/register" element={<Register/>}/>
          <Route path="/forget-password" element={<ForgotPassword/>} />
+         <Route path="/admin" element={<Admin/>}/>
         </Routes>
         <Footer/>
       </Router>

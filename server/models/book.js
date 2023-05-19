@@ -1,9 +1,23 @@
 import mongoose from "mongoose";
 const bookModel = new mongoose.Schema({ 
-    title:{type:String},
-    author:{type:String},
-    price:{type:Number},
-    image:{type:String},
-})
+    name: {
+          type: String,
+          required: true,
+        },
+        author: {
+          type: String,
+          required: true,
+        },
+       
+        price: {
+          type: Number,
+          required: true,
+        },
+        
+        image: {
+          type: String,
+          required: true,
+        },
+      });
 const bookSchema =mongoose.model("Book", bookModel)
 export default bookSchema;
