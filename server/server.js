@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import bookroute from "./routes/bookroute.js";
 import userroute from "./routes/userroute.js";
 import cors from "cors";
+import { errorHandler } from "./middleware/errorHandler.js";
 
 const PORT = process.env.PORT || 5000;
 dotenv.config();
@@ -30,5 +31,8 @@ const startServer = async () => {
 //apis middleware
 app.use("/api/h1/books", bookroute);
 app.use("/api/h1/users", userroute);
+
+//error Handler
+app.use(errorHandler)
 
 startServer();
