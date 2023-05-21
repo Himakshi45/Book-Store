@@ -19,29 +19,29 @@ const registerUser = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
     //create the user
     const user = await User.create({
-      name,
-      email,
-      password: hashedPassword,
-    });
-    if (user) {
-      res.status(201).json({
-        _id: user.id,
-        name: user.name,
-        email: user.email,
-      });
-    } else {
-      res.status(400);
-      throw new Error("invalid");
+        name, 
+        email,
+        password: hashedPassword
+    })
+    if(user){
+        res.status(201).json({
+            _id: user.id,
+            name: user.name,
+            email: user.email
+        })
+    }else{
+        res.status(400)
+        throw new Error("invalid")
     }
   } catch (error) {
     console.log(error);
   }
 };
-const loginUser = (req, res) => {
-  res.send("userlogin");
+const loginUser = (req,res) => {
+    res.send("userlogin")
 };
-const getUser = (req, res) => {
-  res.send("getUser");
+const getUser = (req,res) => {
+    res.send("getUser")
 };
 
 export { registerUser, loginUser, getUser };
