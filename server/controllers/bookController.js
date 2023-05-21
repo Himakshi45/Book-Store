@@ -5,9 +5,8 @@ import mongoose from "mongoose";
 const addBook = async (req, res) => {
   try {
     const { title, author, price, image } = req.body;
-    const session = await mongoose.startSession();
-    session.startTransaction();
-    if (!title && author && price && image) throw new Error();
+    
+    if (!title||!author||!price||!image) throw new Error();
     const imageUrl = await cloudinary.v2.uploader.upload(image);
     //create books
     const newBook = await Book.create({
@@ -16,11 +15,22 @@ const addBook = async (req, res) => {
       price,
       image: imageUrl.url,
     });
-    await newBook.save();
-    await session.commitTransaction();
-    res.status(200).json({ message: "Success created" });
+    if (newBook){
+      res.status(201).json({
+        _id:newBook.id,
+        title:newBook.title,
+        author:newBook.author,
+        price:newBook.price,
+        image:newBook.image
+      })
+    }else{
+      res.status(400)
+      throw new Error("Enter the fields correctly")
+    }
+    
+
   } catch (error) {
-    res.status(500).json({ message: "not created" });
+    console.log(error)
   }
 };
 
