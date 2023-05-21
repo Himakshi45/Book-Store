@@ -4,7 +4,7 @@ import About from "./About";
 import Home from "./Home";
 import Books from "./Books";
 import Contact from "./Contact";
-//import Cart from "./Cart";
+import Cart from "./components/Cart";
 //import SingleProduct from "./SingleProduct";
 import ErrorPage from "./ErrorPage";
 import { GlobalStyle } from "./GlobalStyle";
@@ -12,7 +12,7 @@ import { ThemeProvider } from "styled-components";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Login from "./Login";
-import Admin from "./admin";
+import Admin from "./Admin";
 import Register from "./Register";
 import ForgotPassword from "./ForgotPassword";
 
@@ -57,6 +57,7 @@ const App = () => {
          <Route path="/register" element={<Register/>}/>
          <Route path="/forget-password" element={<ForgotPassword/>} />
          <Route path="/admin" element={<Admin/>}/>
+         <Route path="/cart" element={<Cart/>}/>
         </Routes>
         <Footer/>
       </Router>
