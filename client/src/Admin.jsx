@@ -4,7 +4,7 @@ import {
     FormControlLabel,
     FormLabel,
     TextField,
-    Typography,
+   
   } from "@mui/material";
   import { Box } from "@mui/system";
   import axios from "axios";
@@ -32,7 +32,7 @@ import {
   
     const sendRequest = async () => {
       await axios
-        .post("http://localhost:5000/books", {
+        .post("http://localhost:5000/api/h1/books", {
           name: String(inputs.name),
           author: String(inputs.author),
           price: Number(inputs.price),
@@ -45,7 +45,7 @@ import {
     const handleSubmit = (e) => {
       e.preventDefault();
       console.log(inputs, checked);
-      sendRequest().then(() => history("/books"));
+     
     };
   
     return (
@@ -79,15 +79,7 @@ import {
             variant="outlined"
             name="author"
           />
-          <FormLabel>Description</FormLabel>
-          <TextField
-            value={inputs.description}
-            onChange={handleChange}
-            margin="normal"
-            fullWidth
-            variant="outlined"
-            name="description"
-          />
+          
           <FormLabel>Price</FormLabel>
           <TextField
             value={inputs.price}

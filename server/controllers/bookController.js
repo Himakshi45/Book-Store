@@ -1,42 +1,67 @@
 import Book from "../models/book.js";
-import { v2 as cloudinary } from "cloudinary";
 
-import mongoose from "mongoose";
+//addbook for  admin
 const addBook = async (req, res) => {
+  const book = await Book.create(req.body);
+  res.status(201).json({
+    success: true,
+    book,
+  });
+};
+//update book for admin
+const updateBook = async (req, res, next) => {
   try {
-    const { title, author, price, image } = req.body;
-    
-    if (!title||!author||!price||!image) throw new Error();
-    const imageUrl = await cloudinary.v2.uploader.upload(image);
-    //create books
-    const newBook = await Book.create({
-      title,
-      author,
-      price,
-      image: imageUrl.url,
-    });
-    if (newBook){
-      res.status(201).json({
-        _id:newBook.id,
-        title:newBook.title,
-        author:newBook.author,
-        price:newBook.price,
-        image:newBook.image
-      })
-    }else{
-      res.status(400)
-      throw new Error("Enter the fields correctly")
+    let book = await Book.findById(req.params.id);
+    if (!book) {
+      res.status(500);
+      throw new Error("Book not found");
     }
-    
-
+    book = await Book.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+      useFindAndModify: false,
+    });
+    res.status(200).json({
+      success: true,
+      book,
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
-
-const updateBook = () => {};
-const deleteBook = () => {};
-const getBook = (request, response) => {
-  response.send("hi");
+//by admin
+const deleteBook = async (req, res) => {
+  try {
+    const book = await Book.findById(req.params.id);
+    if (!book) {
+      res.status(500);
+      throw new Error("Book not found");
+    }
+    await book.remove(req.params.id);
+    res.status(200).json({
+      success: true,
+      message: "Book Removed",
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
-export { addBook, updateBook, deleteBook, getBook };
+const getBook = async (req, res) => {
+  const books = await Book.find();
+  res.status(200).json({
+    success: true,
+    books,
+  });
+};
+const getBookDetail = async (req, res) => {
+  const book = await Book.findById(req.params.id);
+  if (!book) {
+    res.status(500);
+    throw new Error("Book not found");
+  }
+  res.status(200).json({
+    success: true,
+    book,
+  });
+};
+export { addBook, updateBook, deleteBook, getBook, getBookDetail };

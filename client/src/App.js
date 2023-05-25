@@ -15,6 +15,7 @@ import Login from "./Login";
 import Admin from "./Admin";
 import Register from "./Register";
 import ForgotPassword from "./ForgotPassword";
+import BookDetail from "./BookDetails";
 
 const App = () => {
   const theme = {
@@ -58,6 +59,7 @@ const App = () => {
          <Route path="/forget-password" element={<ForgotPassword/>} />
          <Route path="/admin" element={<Admin/>}/>
          <Route path="/cart" element={<Cart/>}/>
+         <Route path="/books/:id" element={<BookDetail />} />
         </Routes>
         <Footer/>
       </Router>
