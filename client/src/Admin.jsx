@@ -45,7 +45,7 @@ import {
     const handleSubmit = (e) => {
       e.preventDefault();
       console.log(inputs, checked);
-     
+      sendRequest().then(() => history("/api/h1/books"));
     };
   
     return (

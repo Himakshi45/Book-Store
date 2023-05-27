@@ -24,7 +24,7 @@ const BookCard= (props) => {
         Add to Cart
       </Button>
       <Button color="error" onClick={deleteHandler} sx={{ mt: "auto" }}>
-        Delete
+        See Details
       </Button>
     </div>
   );
