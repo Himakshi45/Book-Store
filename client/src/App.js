@@ -16,7 +16,7 @@ import Admin from "./Admin";
 import Register from "./Register";
 import ForgotPassword from "./ForgotPassword";
 import BookDetail from "./BookDetails";
-
+import SingleBook from "./components/SingleBook";
 const App = () => {
   const theme = {
     colors: {
@@ -60,6 +60,7 @@ const App = () => {
          <Route path="/admin" element={<Admin/>}/>
          <Route path="/cart" element={<Cart/>}/>
          <Route path="/books/:id" element={<BookDetail />} />
+         <Route path="/singlebook" element={<SingleBook/>} />
         </Routes>
         <Footer/>
       </Router>

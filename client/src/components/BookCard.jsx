@@ -23,7 +23,7 @@ const BookCard= (props) => {
       <Button LinkComponent={Link} to={`/cart`} sx={{ mt: "auto" }}>
         Add to Cart
       </Button>
-      <Button color="error" onClick={deleteHandler} sx={{ mt: "auto" }}>
+      <Button LinkComponent={Link} to= {`/singlebook`}sx={{ mt: "auto" }}>
         See Details
       </Button>
     </div>

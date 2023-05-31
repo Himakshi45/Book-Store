@@ -14,7 +14,7 @@ import {
     const [inputs, setInputs] = useState();
     const id = useParams().id;
     const [checked, setChecked] = useState(false);
-    const history = useNavigate();
+    const  navigate = useNavigate();
     useEffect(() => {
       const fetchHandler = async () => {
         await axios
@@ -39,7 +39,7 @@ import {
     };
     const handleSubmit = (e) => {
       e.preventDefault();
-      sendRequest().then(() => history("/books"));
+      sendRequest().then(() => navigate("/books"));
     };
     const handleChange = (e) => {
       setInputs((prevState) => ({
