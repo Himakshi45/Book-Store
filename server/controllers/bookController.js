@@ -1,7 +1,26 @@
 import Book from "../models/book.js";
+import cloudinary from "cloudinary";
 
 //addbook for  admin
 const addBook = async (req, res) => {
+  let images = [];
+  if (typeof req.body.images === "string") {
+    images.push(req.body.images);
+  } else {
+    images = req.body.images;
+  }
+  const imagesLinks = [];
+  for (let i = 0; i < images; i++) {
+    const picSave = await cloudinary.v2.uploader.upload(images[i], {
+      folder: "books",
+    });
+    imagesLinks.push({
+      public_id: picSave.public_id,
+      url: picSave.secure_url,
+    });
+  }
+  req.body.images = imagesLinks;
+  // req.body.user = req.user.id;
   const book = await Book.create(req.body);
   res.status(201).json({
     success: true,
