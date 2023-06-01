@@ -3,13 +3,17 @@ import connectDB from "./mongoDB/db.js";
 import dotenv from "dotenv";
 import bookroute from "./routes/bookroute.js";
 import userroute from "./routes/userroute.js";
+import paymentroute from "./routes/paymentroute.js"
 import cors from "cors";
 import cloudinary from "cloudinary";
 import fileUpload from "express-fileupload";
 
+
 import { errorHandler } from "./middleware/errorHandler.js";
 
+
 const PORT = process.env.PORT || 5000;
+
 
 dotenv.config();
 const app = express();
@@ -40,7 +44,7 @@ const startServer = async () => {
 //apis middleware
 app.use("/api/h1/books", bookroute);
 app.use("/api/h1/users", userroute);
-
+app.use("/api/h1/payment", paymentroute);
 //error Handler
 app.use(errorHandler);
 
