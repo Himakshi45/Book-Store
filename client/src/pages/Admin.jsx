@@ -32,7 +32,7 @@ import {
   
     const sendRequest = async () => {
       await axios
-        .post("http://localhost:5000/api/h1/books", {
+        .post("http://localhost:5000/api/h1/books/book/new", {
           name: String(inputs.name),
           author: String(inputs.author),
           price: Number(inputs.price),
