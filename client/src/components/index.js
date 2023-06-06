@@ -5,7 +5,7 @@ export { default as Cart } from "./Cart";
 export { default as Footer } from "./Footer";
 export { default as Header } from "./Header";
 export { default as HeroSection } from "./HeroSection";
-export { default as Nav } from "./Nav";
+export { default as NavBar } from "./Nav";
 export { default as Payment } from "./Payment";
 export { default as Rating } from "./Rating";
 export { default as Services } from "./Services";
