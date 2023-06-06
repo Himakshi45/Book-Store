@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
+
 import { Wrapper } from "./ErrorPageStyle";
+
 import { Button } from "../styles/Button";
 
 const ErrorPage = () => {

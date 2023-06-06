@@ -11,7 +11,7 @@ const createPayment = async (req, res) => {
     const { amount, currency, receipt } = req.body;
 
     const options = {
-      amount: amount * 100, // Amount in the smallest currency unit (paise for INR)
+      amount: amount * 10, // Amount in the smallest currency unit (paise for INR)
       currency: currency,
       receipt: receipt,
       payment_capture: 1, // 1 to capture the payment immediately, 0 to authorize only

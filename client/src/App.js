@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import { GlobalStyle } from "./pages/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import ErrorPage from "./pageNotFound/ErrorPage";
@@ -52,6 +53,7 @@ const App = () => {
           <Route path="/books" element={<Books />} />
           <Route path="*" element={<ErrorPage />} />
           <Route path="/contact" element={<Contact />} />
+
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forget-password" element={<ForgotPassword />} />

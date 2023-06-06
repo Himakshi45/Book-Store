@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Wrapper } from "./pagesStyles/LoginStyle";
 import "../App.css";
-const Login = () => {
+export const Login = () => {
   return (
     <Wrapper>
       <div className="text-center m-5-auto">
@@ -42,5 +42,3 @@ const Login = () => {
     </Wrapper>
   );
 };
-
-export default Login;
