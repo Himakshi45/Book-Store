@@ -10,7 +10,7 @@ const BookCard= (props) => {
       .delete(`http://localhost:5000/api/h1/books/${_id}`)
       .then((res) => res.data)
       .then(() => history("/"))
-      .then(() => history("/books"));
+      .then(() => history("/book/new"));
   };
 
   return (

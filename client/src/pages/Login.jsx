@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components';
-import './App.css'
+//import './App.css'
 const Login = ()=> {
 const Wrapper= styled.section`
 padding: 9rem 0 5rem 0;

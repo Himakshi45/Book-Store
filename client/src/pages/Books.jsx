@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import axios from "axios";
-import BookCard from "./components/BookCard";
+import BookCard from "../components/BookCard";
 import styled from "styled-components";
 const URL = "http://localhost:5000/api/h1/books";
 
