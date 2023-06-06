@@ -1,22 +1,20 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import About from "./About";
-import Home from "./Home";
-import Books from "./Books";
-import Contact from "./Contact";
-import Cart from "./components/Cart";
-//import SingleProduct from "./SingleProduct";
-import ErrorPage from "./ErrorPage";
-import { GlobalStyle } from "./GlobalStyle";
+import { GlobalStyle } from "./pages/GlobalStyle";
 import { ThemeProvider } from "styled-components";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Login from "./Login";
-import Admin from "./Admin";
-import Register from "./Register";
-import ForgotPassword from "./ForgotPassword";
-import BookDetail from "./BookDetails";
-import SingleBook from "./components/SingleBook";
+import ErrorPage from "./pageNotFound/ErrorPage";
+import {
+  About,
+  Home,
+  Books,
+  Contact,
+  Login,
+  Admin,
+  Register,
+  ForgotPassword,
+  BookDetails,
+} from "./pages";
+import { Cart, Header, Footer, SingleBook } from "./components";
+
 const App = () => {
   const theme = {
     colors: {
@@ -51,18 +49,18 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/books" element={<Books/>} />
-          <Route path="*" element={<ErrorPage/>} />
+          <Route path="/books" element={<Books />} />
+          <Route path="*" element={<ErrorPage />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login/>}/>
-         <Route path="/register" element={<Register/>}/>
-         <Route path="/forget-password" element={<ForgotPassword/>} />
-         <Route path="/admin" element={<Admin/>}/>
-         <Route path="/cart" element={<Cart/>}/>
-         <Route path="/books/:id" element={<BookDetail />} />
-         <Route path="/singlebook" element={<SingleBook/>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forget-password" element={<ForgotPassword />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/books/:id" element={<BookDetails />} />
+          <Route path="/singlebook" element={<SingleBook />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </Router>
     </ThemeProvider>
   );
