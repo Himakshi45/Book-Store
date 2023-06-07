@@ -2,18 +2,6 @@ import { Button } from "@mui/material";
 // import axios from "axios";
 import { Link } from "react-router-dom";
 //import "./Book.css";
-<<<<<<< HEAD
-const BookCard= (props) => {
-  const history = useNavigate();
-  const { _id, name, author, description, price, image } = props.book;
-  const deleteHandler = async () => {
-    await axios
-      .delete(`http://localhost:5000/api/h1/books/${_id}`)
-      .then((res) => res.data)
-      .then(() => history("/"))
-      .then(() => history("/book/new"));
-  };
-=======
 const BookCard = (props) => {
   // const history = useNavigate();
   // const { _id, name, author, description, price, image } = props.book;
@@ -24,7 +12,6 @@ const BookCard = (props) => {
   //     .then(() => history("/"))
   //     .then(() => history("/books"));
   // };
->>>>>>> 3021ed56995299fb10fac7f04df85eed5e09b101
 
   return (
     <div className="card">

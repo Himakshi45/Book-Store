@@ -1,25 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-<<<<<<< HEAD
-import About from "./pages/About";
-import Home from "./pages/Home";
-import Books from "./pages/Books";
-import Contact from "./pages/Contact";
-import Cart from "./components/Cart";
-//import Sidebar from "./components/Sidebar";
-import ErrorPage from "./pageNotFound/ErrorPage";
-import { GlobalStyle } from "./pages/GlobalStyle";
-import { ThemeProvider } from "styled-components";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Login from "./pages/Login";
-import Admin from "./pages/Admin";
-import Register from "./pages/Register";
-import ForgotPassword from "./pages/ForgotPassword";
-import BookDetail from "./pages/BookDetails";
-import SingleBook from "./components/SingleBook";
-import AddBook from "./pages/AddBook";
-import DashBoard from "./pages/DashBoard";
-=======
+
 import { GlobalStyle } from "./pages/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import ErrorPage from "./pageNotFound/ErrorPage";
@@ -33,10 +13,12 @@ import {
   Register,
   ForgotPassword,
   BookDetails,
+  AddBook,
+  DashBoard
 } from "./pages";
 import { Cart, Header, Footer, SingleBook } from "./components";
 
->>>>>>> 3021ed56995299fb10fac7f04df85eed5e09b101
+
 const App = () => {
   const theme = {
     colors: {
@@ -74,7 +56,6 @@ const App = () => {
           <Route path="/books" element={<Books />} />
           <Route path="*" element={<ErrorPage />} />
           <Route path="/contact" element={<Contact />} />
-<<<<<<< HEAD
           <Route path="/login" element={<Login/>}/>
          <Route path="/register" element={<Register/>}/>
          <Route path="/forget-password" element={<ForgotPassword/>} />
@@ -83,17 +64,8 @@ const App = () => {
          <Route path="/dashboard" element={<DashBoard/>}/>
          <Route path="/cart" element={<Cart/>}/>
          
-         <Route path="/books/:id" element={<BookDetail />} />
+         <Route path="/books/:id" element={<BookDetails/>} />
          <Route path="/singlebook" element={<SingleBook/>} />
-=======
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forget-password" element={<ForgotPassword />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/books/:id" element={<BookDetails />} />
-          <Route path="/singlebook" element={<SingleBook />} />
->>>>>>> 3021ed56995299fb10fac7f04df85eed5e09b101
         </Routes>
         <Footer />
       </Router>

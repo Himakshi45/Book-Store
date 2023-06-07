@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 import axios from "axios";
-<<<<<<< HEAD
-import BookCard from "../components/BookCard";
-import styled from "styled-components";
-=======
 import { BookCard } from "../components";
 import { Wrapper } from "./pagesStyles/LoginStyle";
->>>>>>> 3021ed56995299fb10fac7f04df85eed5e09b101
 const URL = "http://localhost:5000/api/h1/books";
 
 const fetchHandler = async () => {
