@@ -1,5 +1,5 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+<<<<<<< HEAD
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Books from "./pages/Books";
@@ -19,6 +19,24 @@ import BookDetail from "./pages/BookDetails";
 import SingleBook from "./components/SingleBook";
 import AddBook from "./pages/AddBook";
 import DashBoard from "./pages/DashBoard";
+=======
+import { GlobalStyle } from "./pages/GlobalStyle";
+import { ThemeProvider } from "styled-components";
+import ErrorPage from "./pageNotFound/ErrorPage";
+import {
+  About,
+  Home,
+  Books,
+  Contact,
+  Login,
+  Admin,
+  Register,
+  ForgotPassword,
+  BookDetails,
+} from "./pages";
+import { Cart, Header, Footer, SingleBook } from "./components";
+
+>>>>>>> 3021ed56995299fb10fac7f04df85eed5e09b101
 const App = () => {
   const theme = {
     colors: {
@@ -53,9 +71,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/books" element={<Books/>} />
-          <Route path="*" element={<ErrorPage/>} />
+          <Route path="/books" element={<Books />} />
+          <Route path="*" element={<ErrorPage />} />
           <Route path="/contact" element={<Contact />} />
+<<<<<<< HEAD
           <Route path="/login" element={<Login/>}/>
          <Route path="/register" element={<Register/>}/>
          <Route path="/forget-password" element={<ForgotPassword/>} />
@@ -66,8 +85,17 @@ const App = () => {
          
          <Route path="/books/:id" element={<BookDetail />} />
          <Route path="/singlebook" element={<SingleBook/>} />
+=======
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forget-password" element={<ForgotPassword />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/books/:id" element={<BookDetails />} />
+          <Route path="/singlebook" element={<SingleBook />} />
+>>>>>>> 3021ed56995299fb10fac7f04df85eed5e09b101
         </Routes>
-        <Footer/>
+        <Footer />
       </Router>
     </ThemeProvider>
   );
