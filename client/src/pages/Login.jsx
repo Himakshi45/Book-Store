@@ -1,26 +1,52 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Wrapper } from "./pagesStyles/LoginStyle";
 import "../App.css";
-export const Login = () => {
+import { useState } from "react";
+
+const Login = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = formData;
+  const onSubmit = () => {};
+  const onChange = (e) => {
+    setFormData();
+  };
   return (
     <Wrapper>
       <div className="text-center m-5-auto">
         <h2>Sign in to us</h2>
-        <form action="/home">
+        <form onSubmit={onSubmit}>
           <p>
-            <label>Username or email address</label>
+            <label>Email address</label>
             <br />
-            <input type="text" name="first_name" required />
+            <input
+              type="text"
+              name="email"
+              value={email}
+              onChange={onChange}
+              autoComplete="on"
+              required
+            />
           </p>
+          <br />
           <p>
             <label>Password</label>
             <Link to="/forget-password">
               <label className="right-label">Forget password?</label>
             </Link>
             <br />
-            <input type="password" name="password" required />
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={onChange}
+              required
+            />
           </p>
+          <br />
           <p>
             <button id="sub_btn" type="submit">
               Login
@@ -42,3 +68,4 @@ export const Login = () => {
     </Wrapper>
   );
 };
+export default Login;

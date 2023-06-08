@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Navbar } from "./ComponentStyles/NavStyles";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
@@ -13,52 +13,52 @@ const Nav = () => {
       <div className={menuIcon ? "navbar active" : "navbar"}>
         <ul className="navbar-lists">
           <li>
-            <NavLink
+            <Link
               to="/"
               className="navbar-link "
               onClick={() => setMenuIcon(false)}
             >
               Home
-            </NavLink>
+            </Link>
           </li>
 
           <li>
-            <NavLink
+            <Link
               to="/about"
               className="navbar-link "
               onClick={() => setMenuIcon(false)}
             >
               About
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink
+            <Link
               to="/books"
               className="navbar-link "
               onClick={() => setMenuIcon(false)}
             >
               Books
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink
+            <Link
               to="/contact"
               className="navbar-link "
               onClick={() => setMenuIcon(false)}
             >
               Contact
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink to="/login" className="navbar-link account ">
+            <Link to="/login" className="navbar-link account ">
               <VscAccount />
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink to="/cart" className="navbar-link cart-trolley--link">
+            <Link to="/cart" className="navbar-link cart-trolley--link">
               <FiShoppingCart className="cart-trolley" />
               <span className="cart-total--item"> 10 </span>
-            </NavLink>
+            </Link>
           </li>
         </ul>
 
