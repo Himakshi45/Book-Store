@@ -27,6 +27,11 @@ const Admin =()=> {
                     </Link>
                 </p>
             </form>
+            <footer>
+            <p>
+            <Link to="/">Back to Homepage</Link>.
+          </p>
+            </footer>
             </div>
         </Wrapper>
     );
