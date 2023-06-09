@@ -10,10 +10,15 @@ const Login = () => {
   });
 
   const { email, password } = formData;
-  const onSubmit = () => {};
+
   const onChange = (e) => {
-    setFormData();
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
+  const onSubmit = () => {};
+
   return (
     <Wrapper>
       <div className="text-center m-5-auto">

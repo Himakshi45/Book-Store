@@ -12,10 +12,15 @@ const Register = () => {
   const { name, email, password } = formData;
 
   const onChange = (e) => {
-    setFormData();
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const onSubmit = () => {};
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <Wrapper>
@@ -43,14 +48,20 @@ const Register = () => {
               type="email"
               name="email"
               value={email}
-              autocomplete="on"
+              onChange={onChange}
               required
             />
           </p>
           <br />
           <p>
             <label>Password</label>
-            <input type="password" name="password" value={password} required />
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={onChange}
+              required
+            />
           </p>
           <br />
           <p>
