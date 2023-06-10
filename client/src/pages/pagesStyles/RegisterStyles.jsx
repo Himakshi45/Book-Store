@@ -1,7 +1,4 @@
 import styled from "styled-components";
-<<<<<<< HEAD
-export const Wrapper = styled.section``;
-=======
 export const Wrapper = styled.section`
 .container {
   padding: 9rem 0 5rem 0;
@@ -39,4 +36,3 @@ form span {
   }
 }
 `;
->>>>>>> upstream/master
