@@ -1,9 +1,10 @@
-import React from "react";
-
-import { Link } from "react-router-dom";
-import { Wrapper } from "./pagesStyles/LoginStyle";
 import "../App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { login, reset } from "../features/auth/authSlice";
+
+import { Wrapper } from "./pagesStyles/LoginStyle";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -13,13 +14,42 @@ const Login = () => {
 
   const { email, password } = formData;
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+  useEffect(() => {
+    if (isLoading) {
+      console.log("...Loading");
+    }
+    if (isSuccess || user) {
+      console.log("Login Working");
+      navigate("/");
+      //naviage to / or checkout page or login page confuss
+    }
+    if (isError) {
+      console.log(message);
+    }
+
+    dispatch(reset());
+  }, [user, isLoading, isError, isSuccess, message, navigate, dispatch]);
+
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
-  const onSubmit = () => {};
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const userData = {
+      email,
+      password,
+    };
+    dispatch(login(userData));
+  };
 
   return (
     <Wrapper>
@@ -34,7 +64,6 @@ const Login = () => {
               name="email"
               value={email}
               onChange={onChange}
-              autoComplete="on"
               required
             />
           </p>

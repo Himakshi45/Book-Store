@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { register, reset } from "../features/auth/authSlice";
 import { Link } from "react-router-dom";
 import { Wrapper } from "./pagesStyles/LoginStyle";
 import "../App.css";
@@ -12,6 +14,29 @@ const Register = () => {
 
   const { name, email, password } = formData;
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isLoading) {
+      console.log("...Loading");
+    }
+    if (isSuccess || user) {
+      console.log("Register Working");
+      navigate("/");
+      //naviage to / or checkout page or login page confuss
+    }
+    if (isError) {
+      console.log(message);
+    }
+
+    dispatch(reset());
+  }, [user, isLoading, isError, isSuccess, message, navigate, dispatch]);
+
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -21,6 +46,12 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    const userData = {
+      name,
+      email,
+      password,
+    };
+    dispatch(register(userData));
   };
 
   return (
@@ -37,7 +68,6 @@ const Register = () => {
               name="name"
               value={name}
               onChange={onChange}
-              autocomplete="on"
               required
             />
           </p>

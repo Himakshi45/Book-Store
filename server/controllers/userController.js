@@ -1,7 +1,10 @@
-import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 import User from "../models/user.js";
 import bcrypt from "bcryptjs";
+
+//POST - create user
+// /api/users/register
+// public
 const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -28,8 +31,8 @@ const registerUser = async (req, res) => {
         _id: user.id,
         name: user.name,
         email: user.email,
-      token:generateToken(user._id)
-    });
+        token: generateToken(user._id),
+      });
     } else {
       res.status(400);
       throw new Error("invalid");
@@ -38,16 +41,20 @@ const registerUser = async (req, res) => {
     console.log(error);
   }
 };
+
+//POST - auth a user
+// /api/users/login
+// private
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).select("+password");
     if (user && (await bcrypt.compare(password, user.password))) {
       res.json({
         _id: user.id,
         name: user.name,
         email: user.email,
-        token:generateToken(user._id)
+        token: generateToken(user._id),
       });
     } else {
       res.status(400);
@@ -58,10 +65,13 @@ const loginUser = async (req, res) => {
   }
 };
 
-const getUser = (req, res) => {
-  res.send("getUser");
+//POST - create user
+// /api/users/user
+// private
+const getUser = async (req, res) => {
+  res.status(200).json(req.user);
 };
 const generateToken = (id) => {
- return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 };
 export { registerUser, loginUser, getUser };
