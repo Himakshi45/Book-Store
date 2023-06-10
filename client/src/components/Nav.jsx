@@ -4,6 +4,7 @@ import { Navbar } from "./ComponentStyles/NavStyles";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
 import { VscAccount } from "react-icons/vsc";
+import {BsFillArrowDownSquareFill} from "react-icons/bs";
 
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
@@ -12,25 +13,8 @@ const Nav = () => {
     <Navbar>
       <div className={menuIcon ? "navbar active" : "navbar"}>
         <ul className="navbar-lists">
-          <li>
-            <NavLink
-              to="/"
-              className="navbar-link "
-              onClick={() => setMenuIcon(false)}
-            >
-              Home
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/about"
-              className="navbar-link "
-              onClick={() => setMenuIcon(false)}
-            >
-              About
-            </NavLink>
-          </li>
+         
+       
           <li>
             <NavLink
               to="/books"
@@ -50,16 +34,20 @@ const Nav = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/login" className="navbar-link account ">
-              <VscAccount />
-            </NavLink>
-          </li>
-          <li>
             <NavLink to="/cart" className="navbar-link cart-trolley--link">
               <FiShoppingCart className="cart-trolley" />
               <span className="cart-total--item"> 10 </span>
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/login" className="navbar-link account ">
+              <VscAccount />
+              <NavLink to="/login"className="navbar-link account ">
+              <BsFillArrowDownSquareFill/>
+              </NavLink>
+            </NavLink>
+          </li>
+         
         </ul>
 
         {/* two button for open and close of menu */}

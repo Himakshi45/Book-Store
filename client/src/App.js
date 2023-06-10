@@ -16,7 +16,7 @@ import {
   AddBook,
   DashBoard
 } from "./pages";
-import { Cart, Header, Footer, SingleBook } from "./components";
+import { Cart, Header, Footer, SingleBook, Checkout } from "./components";
 
 
 const App = () => {
@@ -63,7 +63,7 @@ const App = () => {
          <Route path="/addbook" element={<AddBook/>}/>
          <Route path="/dashboard" element={<DashBoard/>}/>
          <Route path="/cart" element={<Cart/>}/>
-         
+         <Route path="/checkout" element={<Checkout />} />
          <Route path="/books/:id" element={<BookDetails/>} />
          <Route path="/singlebook" element={<SingleBook/>} />
         </Routes>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 export const MainHeader = styled.header`
-  padding: 0 4.2rem;
-  height: 15rem;
+  padding: 0 3.2rem;
+  height: 14rem;
   background-color: ${({ theme }) => theme.colors.bg};
   display: flex;
   justify-content: space-between;
