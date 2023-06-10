@@ -14,10 +14,9 @@ import {
   ForgotPassword,
   BookDetails,
   AddBook,
-  DashBoard
+  DashBoard,
 } from "./pages";
 import { Cart, Header, Footer, SingleBook, Checkout } from "./components";
-
 
 const App = () => {
   const theme = {

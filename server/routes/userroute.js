@@ -1,4 +1,4 @@
-import express  from "express";
+import express from "express";
 const router = express.Router();
 import {
   registerUser,
@@ -7,6 +7,6 @@ import {
 } from "../controllers/userController.js";
 router.route("/register").post(registerUser);
 router.route("/login").post(loginUser);
-router.route("/user").get(getUser);
+router.route("/me").get(getUser);
 
 export default router;
