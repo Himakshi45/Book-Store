@@ -13,4 +13,5 @@ router.route("/book/new").post(addBook);
 router.route("/:id").patch(updateBook);
 router.route("/:id").delete(deleteBook);
 router.route("/:id").get(getBookDetail);
+
 export default router;

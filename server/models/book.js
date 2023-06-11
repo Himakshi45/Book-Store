@@ -16,22 +16,20 @@ const bookModel = new mongoose.Schema({
     required: true,
   },
 
-  image: [
+  images: [
     {
       public_id: {
         type: String,
-        required: true
       },
       url: {
         type: String,
-        required: true
-      }
-    }
+      },
+    },
   ],
-  createdAt:{
+  createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 const bookSchema = mongoose.model("Book", bookModel);
 export default bookSchema;
