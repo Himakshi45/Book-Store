@@ -1,7 +1,7 @@
 import styled from "styled-components";
 export const MainHeader = styled.header`
   padding: 0 4.8rem;
-  height: 15rem;
+  height: 14rem;
   background-color: ${({ theme }) => theme.colors.bg};
   display: flex;
   justify-content: space-between;
@@ -16,7 +16,7 @@ export const MainHeader = styled.header`
       padding: 0 2rem;
       height: 8rem;
     }
-  
+
     .logo {
       height: 4rem;
     }
