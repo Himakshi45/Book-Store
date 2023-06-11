@@ -55,16 +55,18 @@ const App = () => {
           <Route path="/books" element={<Books />} />
           <Route path="*" element={<ErrorPage />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login/>}/>
-         <Route path="/register" element={<Register/>}/>
-         <Route path="/forget-password" element={<ForgotPassword/>} />
-         <Route path="/admin" element={<Admin/>}/>
-         <Route path="/addbook" element={<AddBook/>}/>
-         <Route path="/dashboard" element={<DashBoard/>}/>
-         <Route path="/cart" element={<Cart/>}/>
-         <Route path="/checkout" element={<Checkout />} />
-         <Route path="/books/:id" element={<BookDetails/>} />
-         <Route path="/singlebook" element={<SingleBook/>} />
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forget-password" element={<ForgotPassword />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/addbook" element={<AddBook />} />
+          <Route path="/dashboard" element={<DashBoard />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+
+          <Route path="/books/:id" element={<BookDetails />} />
+          <Route path="/singlebook" element={<SingleBook />} />
         </Routes>
         <Footer />
       </Router>

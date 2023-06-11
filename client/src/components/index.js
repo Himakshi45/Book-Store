@@ -1,4 +1,3 @@
-export { default as Book } from "./Book";
 export { default as BookCard } from "./BookCard";
 export { default as Cart } from "./Cart";
 export { default as Checkout } from "./Checkout";
