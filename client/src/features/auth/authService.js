@@ -1,7 +1,7 @@
 //this file is used for http requests
 import axios from "axios";
 
-const API_URL = "/api/h1/users/";
+const API_URL = "http://localhost:5000/api/h1/users/";
 
 //Register User
 const register = async (userData) => {
