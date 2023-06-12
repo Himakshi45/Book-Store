@@ -1,34 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { Button, TextField, FormLabel } from "@mui/material";
 import { Box } from "@mui/system";
 import "../App.css";
 import { addBooks } from "../features/books/bookSlice";
+
 const AddBook = () => {
   const [name, setName] = useState("");
   const [author, setAuthor] = useState("");
   const [price, setPrice] = useState(0);
   const [images, setImages] = useState([]);
-  
+
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
+
   const { books, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.books
   );
-
-  useEffect(() => {
-    if (isLoading) {
-      console.log("Loading");
-    }
-    if (isSuccess){
-      navigate("/");
-    }
-
-    if (isError) {
-      console.log(message);
-    }
-  }, [books, isError, isLoading, isSuccess, message,navigate]);
 
   const onSubmitBookForm = (e) => {
     e.preventDefault();
@@ -48,22 +37,37 @@ const AddBook = () => {
     files.forEach((file) => {
       const reader = new FileReader();
       reader.onload = () => {
-        setImages((old) => [...old, reader.picSave]);
+        if (reader.readyState === 2) {
+          setImages((old) => [...old, reader.result]);
+        }
       };
       reader.readAsDataURL(file);
     });
   };
+
+  useEffect(() => {
+    if (isLoading) {
+      console.log("Loading");
+    }
+    if (isSuccess) {
+      console.log("Book Added Successfully 🎉😎");
+      //navigate("/");
+    }
+    if (isError) {
+      console.log(message);
+    }
+  }, [books, isError, isLoading, isSuccess, message]);
 
   return (
     <form onSubmit={onSubmitBookForm}>
       <Box
         display="flex"
         flexDirection="column"
-        justifyContent={"center"}
+        justifyContent="center"
         maxWidth={700}
-        alignContent={"center"}
+        alignContent="center"
         alignSelf="center"
-        marginLeft={"auto"}
+        marginLeft="auto"
         marginRight="auto"
         marginTop={10}
       >
