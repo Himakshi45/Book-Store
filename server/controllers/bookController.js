@@ -36,7 +36,7 @@ const addBook = async (req, res) => {
     images = req.body.images;
   }
   const imagesLinks = [];
-  for (let i = 0; i < images; i++) {
+  for (let i = 0; i < images.length; i++) {
     const picSave = await cloudinary.v2.uploader.upload(images[i], {
       folder: "books",
     });
@@ -46,7 +46,7 @@ const addBook = async (req, res) => {
     });
   }
   req.body.images = imagesLinks;
-  req.body.user = req.user.id;
+  req.body.user = req.user;
   const book = await Book.create(req.body);
   res.status(201).json({
     success: true,
