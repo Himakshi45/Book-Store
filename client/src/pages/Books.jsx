@@ -1,29 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 
 import { BookCard } from "../components";
 import { Wrapper } from "./pagesStyles/LoginStyle";
+import { getBooks, reset } from "../features/books/bookSlice";
 
-const URL = "http://localhost:5000/api/h1/books";
-
-const fetchHandler = async () => {
-  return await axios.get(URL).then((res) => res.data);
-};
 const Books = () => {
-  const [books, setBooks] = useState();
+  const dispatch = useDispatch();
+  const { books, isError, message } = useSelector((state) => state.books);
+
   useEffect(() => {
-    fetchHandler().then((data) => setBooks(data.books));
-  }, []);
-  console.log(books);
+    if (isError) {
+      console.log(message);
+    }
+    dispatch(getBooks());
+    return () => {
+      dispatch(reset());
+    };
+  }, [isError, message, dispatch]);
   return (
     <Wrapper>
       <div>
         <ul>
           {books &&
-            books.map((book, i) => (
-              <li key={i}>
-                <BookCard book={book} />
+            books.map((book) => (
+              <li>
+                <BookCard key={book.id} />
               </li>
             ))}
         </ul>

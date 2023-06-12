@@ -48,7 +48,7 @@ const AddBook = () => {
     files.forEach((file) => {
       const reader = new FileReader();
       reader.onload = () => {
-        setImages((old) => [...old, reader.picSave]);
+        setImages(() => reader.picSave);
       };
       reader.readAsDataURL(file);
     });
