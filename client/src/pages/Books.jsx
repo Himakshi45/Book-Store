@@ -1,31 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 
-import { BookCard } from "../components";
 import { Wrapper } from "./pagesStyles/LoginStyle";
+import { getBooks } from "../features/books/bookSlice";
+import BookCard from "../components/BookCard";
 
-const URL = "http://localhost:5000/api/h1/books";
-
-const fetchHandler = async () => {
-  return await axios.get(URL).then((res) => res.data);
-};
 const Books = () => {
-  const [books, setBooks] = useState();
+  const dispatch = useDispatch();
+  const { books, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.books
+  );
+
   useEffect(() => {
-    fetchHandler().then((data) => setBooks(data.books));
-  }, []);
-  console.log(books);
+    if (isLoading) {
+      console.log("Fetching Books");
+    }
+    if (isSuccess) {
+      console.log("Fetched Successfully 🎉");
+    }
+    if (isError) {
+      console.log(message);
+    }
+    return dispatch(getBooks());
+  }, [isError, isLoading, isSuccess, message, dispatch]);
   return (
     <Wrapper>
       <div>
         <ul>
-          {books &&
-            books.map((book, i) => (
-              <li key={i}>
-                <BookCard book={book} />
-              </li>
-            ))}
+          {books.length > 0 ? (
+            <>
+              {books.map((book) => (
+                <BookCard key={book._id} book={books} />
+              ))}
+            </>
+          ) : (
+            <h4>Network Error🤒</h4>
+          )}
         </ul>
       </div>
     </Wrapper>

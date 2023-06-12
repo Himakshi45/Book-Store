@@ -5,8 +5,10 @@ import cloudinary from "cloudinary";
 //GET all books
 // API - /api/h1/books
 //public
+
 const getBook = asyncHandler(async (req, res) => {
-  const books = await Book.find({ user: req.user.id });
+  const books = await Book.find({ user: req.user });
+
   res.status(200).json({
     success: true,
     books,
@@ -16,6 +18,7 @@ const getBook = asyncHandler(async (req, res) => {
 //GET book
 // API - /api/h1/books
 //public
+
 const getBookDetail = asyncHandler(async (req, res) => {
   const book = await Book.findById(req.params.id);
   if (!book) {
