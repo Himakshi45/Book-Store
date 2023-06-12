@@ -25,7 +25,7 @@ const Login = () => {
       console.log("...Loading");
     }
     if (isSuccess || user) {
-      console.log("Login Working");
+      console.log("Register SuccessFully 🎉🎉");
       navigate("/");
       //naviage to / or checkout page or login page confuss
     }

@@ -1,14 +1,20 @@
 import styled from "styled-components";
 export const Wrapper = styled.section`
+
+
   body {
+
     font-family: Arial;
     font-size: 17px;
     padding: 8px;
   }
 
+
+
   * {
     box-sizing: border-box;
   }
+
 
   .row {
     display: -ms-flexbox; /* IE10 */
@@ -18,6 +24,8 @@ export const Wrapper = styled.section`
     margin: 0 -16px;
   }
 
+
+>>>>>>> my-changes
   .col-25 {
     -ms-flex: 25%; /* IE10 */
     flex: 25%;
@@ -32,7 +40,6 @@ export const Wrapper = styled.section`
     -ms-flex: 75%; /* IE10 */
     flex: 75%;
   }
-
   .col-25,
   .col-50,
   .col-75 {
@@ -46,7 +53,9 @@ export const Wrapper = styled.section`
     border-radius: 3px;
   }
 
+
   input[type="text"] {
+>>>>>>> my-changes
     width: 100%;
     margin-bottom: 20px;
     padding: 12px;
@@ -54,6 +63,7 @@ export const Wrapper = styled.section`
     border-radius: 3px;
   }
 
+>>>>>>> my-changes
   label {
     margin-bottom: 10px;
     display: block;
@@ -65,8 +75,10 @@ export const Wrapper = styled.section`
     font-size: 24px;
   }
 
+
   .btn {
     background-color: #04aa6d;
+>>>>>>> my-changes
     color: white;
     padding: 12px;
     margin: 10px 0;
@@ -76,6 +88,7 @@ export const Wrapper = styled.section`
     cursor: pointer;
     font-size: 17px;
   }
+
 
   .btn:hover {
     background-color: #45a049;
@@ -93,4 +106,5 @@ export const Wrapper = styled.section`
     float: right;
     color: grey;
   }
+
 `;

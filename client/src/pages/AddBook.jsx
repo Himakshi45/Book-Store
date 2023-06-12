@@ -18,18 +18,6 @@ const AddBook = () => {
     (state) => state.books
   );
 
-  useEffect(() => {
-    if (isLoading) {
-      console.log("Loading");
-    }
-    if (isSuccess) {
-      navigate("/");
-    }
-    if (isError) {
-      console.log(message);
-    }
-  }, [books, isError, isLoading, isSuccess, message, navigate]);
-
   const onSubmitBookForm = (e) => {
     e.preventDefault();
     const myForm = new FormData();
@@ -48,11 +36,26 @@ const AddBook = () => {
     files.forEach((file) => {
       const reader = new FileReader();
       reader.onload = () => {
-        setImages(() => reader.picSave);
+        if (reader.readyState === 2) {
+          setImages((old) => [...old, reader.picSave]);
+        }
       };
       reader.readAsDataURL(file);
     });
   };
+
+  useEffect(() => {
+    if (isLoading) {
+      console.log("Loading");
+    }
+    if (isSuccess) {
+      console.log("Book Added Successfully 🎉😎");
+      navigate("/");
+    }
+    if (isError) {
+      console.log(message);
+    }
+  }, [books, isError, isLoading, isSuccess, message, navigate]);
 
   return (
     <form onSubmit={onSubmitBookForm}>
