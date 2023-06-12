@@ -49,7 +49,7 @@ const AddBook = () => {
       console.log("Loading");
     }
     if (isSuccess) {
-      console.log("Its Working 🎉");
+      console.log("Book Added Successfully 🎉😎");
       navigate("/");
     }
     if (isError) {

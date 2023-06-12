@@ -1,21 +1,22 @@
+import asyncHandler from "express-async-handler";
 import Book from "../models/book.js";
 import cloudinary from "cloudinary";
 
 //GET all books
 // API - /api/h1/books
 //public
-const getBook = async (req, res) => {
+const getBook = asyncHandler(async (req, res) => {
   const books = await Book.find({ user: req.user.id });
   res.status(200).json({
     success: true,
     books,
   });
-};
+});
 
 //GET book
 // API - /api/h1/books
 //public
-const getBookDetail = async (req, res) => {
+const getBookDetail = asyncHandler(async (req, res) => {
   const book = await Book.findById(req.params.id);
   if (!book) {
     res.status(500);
@@ -25,10 +26,10 @@ const getBookDetail = async (req, res) => {
     success: true,
     book,
   });
-};
+});
 
 //addbook for  admin
-const addBook = async (req, res) => {
+const addBook = asyncHandler(async (req, res) => {
   let images = [];
   if (typeof req.body.images === "string") {
     images.push(req.body.images);
@@ -57,9 +58,9 @@ const addBook = async (req, res) => {
     res.status(400);
     throw new Error(" Enter the fields correctly");
   }
-};
+});
 //update book for admin
-const updateBook = async (req, res, next) => {
+const updateBook = asyncHandler(async (req, res, next) => {
   try {
     let book = await Book.findById(req.params.id);
     if (!book) {
@@ -78,9 +79,9 @@ const updateBook = async (req, res, next) => {
   } catch (error) {
     console.log(error);
   }
-};
+});
 //by admin
-const deleteBook = async (req, res) => {
+const deleteBook = asyncHandler(async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
     if (!book) {
@@ -96,6 +97,6 @@ const deleteBook = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-};
+});
 
 export { addBook, updateBook, deleteBook, getBook, getBookDetail };
