@@ -13,7 +13,16 @@ const Nav = () => {
     <Navbar>
       <div className={menuIcon ? "navbar active" : "navbar"}>
         <ul className="navbar-lists">
-         
+        <li>
+            <Link
+              to="/"
+              className="navbar-link "
+              onClick={() => setMenuIcon(false)}
+            >
+              Home
+            </Link>
+          </li>
+  
        
           <li>
             <Link
@@ -42,9 +51,12 @@ const Nav = () => {
           <li>
             <Link to="/login" className="navbar-link account ">
               <VscAccount />
-              <Link to="/login"className="navbar-link account ">
-              <BsFillArrowDownSquareFill/>
               </Link>
+              </li>
+              <li>
+              <Link to="/"className="navbar-link account"  >
+              <BsFillArrowDownSquareFill/>
+              
             </Link>
           </li>
          

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
 import { Button, TextField, FormLabel } from "@mui/material";
 import { Box } from "@mui/system";
 import "../App.css";
@@ -10,9 +10,9 @@ const AddBook = () => {
   const [author, setAuthor] = useState("");
   const [price, setPrice] = useState(0);
   const [images, setImages] = useState([]);
-
+  
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const { books, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.books
   );
@@ -21,11 +21,14 @@ const AddBook = () => {
     if (isLoading) {
       console.log("Loading");
     }
+    if (isSuccess){
+      navigate("/");
+    }
 
     if (isError) {
       console.log(message);
     }
-  }, [books, isError, isLoading, isSuccess, message]);
+  }, [books, isError, isLoading, isSuccess, message,navigate]);
 
   const onSubmitBookForm = (e) => {
     e.preventDefault();
