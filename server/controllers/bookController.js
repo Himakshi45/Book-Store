@@ -47,6 +47,7 @@ const addBook = async (req, res) => {
   }
   req.body.images = imagesLinks;
   req.body.user = req.user;
+
   const book = await Book.create(req.body);
   res.status(201).json({
     success: true,
