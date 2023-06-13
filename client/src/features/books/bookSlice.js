@@ -32,7 +32,7 @@ export const getBooks = createAsyncThunk(
   async (myForm, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user?.token;
-      return await bookService.getBooks(myForm, token);
+      return await bookService.getBook(myForm, token);
     } catch (error) {
       const message =
         (error.response &&
@@ -72,6 +72,7 @@ const bookSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.books = action.payload;
+        
       })
       .addCase(getBooks.rejected, (state, action) => {
         state.isLoading = false;

@@ -13,7 +13,7 @@ const HeroSection = ({ myData }) => {
             <p className="intro-data">Welcome to </p>
             <h1> {name} </h1>
             <p>Buy Your Favourite Genre Books Online</p>
-            <NavLink>
+            <NavLink to ="/books">
               <Button>shop now</Button>
             </NavLink>
           </div>

@@ -6,12 +6,13 @@ const Home = () => {
   };
 
   return (
-    <>
-      <HeroSection myData={data} />
-      <Services />
-      <Trusted />
-    </>
-  );
-};
-
-export default Home;
+  <>
+    <HeroSection myData={data} />
+    
+  
+    <Services />
+    <Trusted />
+  </>
+);
+  }
+  export default Home

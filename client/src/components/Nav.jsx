@@ -33,19 +33,11 @@ const Nav = () => {
               Books
             </Link>
           </li>
-          <li>
-            <Link
-              to="/contact"
-              className="navbar-link "
-              onClick={() => setMenuIcon(false)}
-            >
-              Contact
-            </Link>
-          </li>
+         
           <li>
             <Link to="/cart" className="navbar-link cart-trolley--link">
               <FiShoppingCart className="cart-trolley" />
-              <span className="cart-total--item"> 10 </span>
+              <span className="cart-total--item" class="badge"> 0 </span>
             </Link>
           </li>
           <li>
@@ -57,9 +49,11 @@ const Nav = () => {
               <Dropdown title="Login">
     
     
-              <Dropdown.Item panel style={{ padding: 10, width: 5}}>
+              <Dropdown.Item panel style={{ padding: 10, width: 100}}>
       <Link to="/myorder">My Orders</Link></Dropdown.Item>  
-      <Dropdown.Item  panel style={{ padding: 10, width: 5 }}>
+      <Dropdown.Item panel style={{ padding: 10, width: 100}}>
+      <Link to="/contact">Contact</Link></Dropdown.Item>  
+      <Dropdown.Item  panel style={{ padding: 10, width: 100 }}>
       <Link to="/login">Sign out</Link></Dropdown.Item>
     </Dropdown>
   

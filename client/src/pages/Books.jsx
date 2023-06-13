@@ -24,21 +24,21 @@ const Books = () => {
 
   return (
     <Wrapper>
+      
       <div>
         <ul>
           {books.length > 0 ? (
-            books.map((book) => (
-              <BookCard
-                key={book._id}
-                book={book}
-                additionalProp="Extra Data" // Additional prop
-              />
-            ))
+            <>
+              {books.map((book) => (
+                <BookCard key={book._id} book={books} />
+              ))}
+            </>
           ) : (
-            <h4>No books found</h4>
+            <h4>Network Error🤒</h4>
           )}
         </ul>
       </div>
+    
     </Wrapper>
   );
 };

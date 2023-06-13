@@ -1,7 +1,7 @@
 import axios from "axios";
 const API_URL = "http://localhost:5000/api/h1/books/book/new";
 
-const API_URL_GETBOOKS = "http://localhost:5000/api/h1/books";
+const API_URL_GETBOOKS = "http://localhost:5000/api/h1/books/";
 
 const addBook = async (myForm, token) => {
   const config = {
@@ -13,7 +13,7 @@ const addBook = async (myForm, token) => {
 
   return response.data;
 };
-const getBooks = async (myForm, token) => {
+const getBook = async (myForm, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -25,6 +25,6 @@ const getBooks = async (myForm, token) => {
 };
 const bookService = {
   addBook,
-  getBooks,
+  getBook,
 };
 export default bookService;

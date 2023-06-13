@@ -17,6 +17,38 @@ form span {
 #reset_pass_lbl {
   float: left
 }
+.home{
+  background:url(../public/images/great-books-for-anytime-2000-4ff4221eb1e54b659689fef7d5e265d5.jpg) no-repeat;
+  background-size :cover;
+  background-position: center;
+
+
+}
+.home .row{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap:2rem;
+}
+.home .row .books-slider{
+  flex:1 1 42rem;
+  text-align: center;
+  margin-top: 2rem;
+
+}
+.home .row .books-slider a img{
+  height: 25rem;
+}
+.home .row .books-slider a:hover img{
+  transform: scale(.9); 
+}
+.swiper {
+  width: 600px;
+  height: 300px;
+}
+section{
+  padding: 5rem 9%;
+}
 
 
 
@@ -36,6 +68,10 @@ form span {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+section{
+  padding: 3rem 2rem;
+}
+
 
 .App-link {
   color: #61dafb;
