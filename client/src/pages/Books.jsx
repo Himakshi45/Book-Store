@@ -8,7 +8,7 @@ import BookCard from "../components/BookCard";
 
 const Books = () => {
   const dispatch = useDispatch();
-  const { books, isLoading, isError, isSuccess, message } = useSelector(
+  const { books, isLoading, isError, message } = useSelector(
     (state) => state.books
   );
 
@@ -16,16 +16,15 @@ const Books = () => {
     if (isLoading) {
       console.log("Fetching Books");
     }
-    if (isSuccess) {
-      console.log("Fetched Successfully 🎉");
-    }
+
     if (isError) {
       console.log(message);
     }
-    return dispatch(getBooks());
-  }, [isError, isLoading, isSuccess, message, dispatch]);
+    dispatch(getBooks());
+  });
   return (
     <Wrapper>
+      <div>HI</div>
       <div>
         <ul>
           {books.length > 0 ? (
