@@ -1,9 +1,10 @@
 import { Button } from "@mui/material";
 
 import { Link } from "react-router-dom";
-
+import { Wrapper } from "./ComponentStyles/BookCardStyles";
 const BookCard = ({ book: _id, name, author, price, image }) => {
   return (
+    <Wrapper>
     <div className="card">
       <img src={image} alt={name} />
       <article>By {author}</article>
@@ -17,6 +18,7 @@ const BookCard = ({ book: _id, name, author, price, image }) => {
         See Details
       </Button>
     </div>
+    </Wrapper>
   );
 };
 

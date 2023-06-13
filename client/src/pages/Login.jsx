@@ -27,6 +27,7 @@ const Login = () => {
     if (isSuccess || user) {
       console.log("Login Working");
       navigate("/");
+      
       //naviage to / or checkout page or login page confuss
     }
     if (isError) {

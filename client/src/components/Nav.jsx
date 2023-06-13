@@ -4,11 +4,11 @@ import { Navbar } from "./ComponentStyles/NavStyles";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
 import { VscAccount } from "react-icons/vsc";
-import {BsFillArrowDownSquareFill} from "react-icons/bs";
+import { Dropdown } from "rsuite";
 
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
-
+  
   return (
     <Navbar>
       <div className={menuIcon ? "navbar active" : "navbar"}>
@@ -54,10 +54,17 @@ const Nav = () => {
               </Link>
               </li>
               <li>
-              <Link to="/"className="navbar-link account"  >
-              <BsFillArrowDownSquareFill/>
+              <Dropdown title="Login">
+    
+    
+              <Dropdown.Item panel style={{ padding: 10, width: 5}}>
+      <Link to="/myorder">My Orders</Link></Dropdown.Item>  
+      <Dropdown.Item  panel style={{ padding: 10, width: 5 }}>
+      <Link to="/login">Sign out</Link></Dropdown.Item>
+    </Dropdown>
+  
               
-            </Link>
+            
           </li>
          
         </ul>
