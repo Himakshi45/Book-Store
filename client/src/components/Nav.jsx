@@ -8,12 +8,11 @@ import { Dropdown } from "rsuite";
 
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
-  
   return (
     <Navbar>
       <div className={menuIcon ? "navbar active" : "navbar"}>
         <ul className="navbar-lists">
-        <li>
+          <li>
             <Link
               to="/"
               className="navbar-link "
@@ -22,8 +21,7 @@ const Nav = () => {
               Home
             </Link>
           </li>
-  
-       
+
           <li>
             <Link
               to="/books"
@@ -51,22 +49,18 @@ const Nav = () => {
           <li>
             <Link to="/login" className="navbar-link account ">
               <VscAccount />
-              </Link>
-              </li>
-              <li>
-              <Dropdown title="Login">
-    
-    
-              <Dropdown.Item panel style={{ padding: 10, width: 5}}>
-      <Link to="/myorder">My Orders</Link></Dropdown.Item>  
-      <Dropdown.Item  panel style={{ padding: 10, width: 5 }}>
-      <Link to="/login">Sign out</Link></Dropdown.Item>
-    </Dropdown>
-  
-              
-            
+            </Link>
           </li>
-         
+          <li>
+            <Dropdown title="Login">
+              <Dropdown.Item panel style={{ padding: 10, width: 5 }}>
+                <Link to="/myorder">My Orders</Link>
+              </Dropdown.Item>
+              <Dropdown.Item panel style={{ padding: 10, width: 5 }}>
+                <Link to="/login">Sign out</Link>
+              </Dropdown.Item>
+            </Dropdown>
+          </li>
         </ul>
 
         {/* two button for open and close of menu */}
