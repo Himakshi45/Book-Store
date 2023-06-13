@@ -1,5 +1,8 @@
 import styled from "styled-components";
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/raw
 export const Wrapper = styled.section`
   .container {
     padding: 9rem 0 5rem 0;

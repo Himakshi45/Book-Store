@@ -40,7 +40,6 @@ export const Navbar = styled.nav`
 .cart-trolley--link {
   position: relative;
 }
-
 .cart-trolley {
   position: relative;
   font-size: 3.2rem;
@@ -60,6 +59,9 @@ export const Navbar = styled.nav`
   background-color: ${({ theme }) => theme.colors.helper};
 }
 
+
+
+
 .user-login--name {
   text-transform: capitalize;
 }
@@ -69,6 +71,7 @@ export const Navbar = styled.nav`
   font-size: 1.4rem;
   padding: 0.8rem 1.4rem;
 }
+
 
 @media (max-width: ${({ theme }) => theme.media.mobile}) {
   .mobile-navbar-btn {
@@ -141,4 +144,5 @@ export const Navbar = styled.nav`
     font-size: 2.2rem;
     padding: 0.8rem 1.4rem;
   }
+  
 }`

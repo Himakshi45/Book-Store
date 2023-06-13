@@ -27,6 +27,7 @@ const Login = () => {
     if (isSuccess || user) {
       console.log("Register SuccessFully 🎉🎉");
       navigate("/");
+      
       //naviage to / or checkout page or login page confuss
     }
     if (isError) {

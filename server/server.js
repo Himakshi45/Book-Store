@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import bookroute from "./routes/bookroute.js";
 import userroute from "./routes/userroute.js";
 import paymentroute from "./routes/paymentroute.js";
+import orderroute from "./routes/orderroute.js";
 import cors from "cors";
 import cloudinary from "cloudinary";
 import fileUpload from "express-fileupload";
@@ -43,6 +44,7 @@ const startServer = async () => {
 app.use("/api/h1/books", bookroute);
 app.use("/api/h1/users", userroute);
 app.use("/api/h1/payment", paymentroute);
+app.use("/api/h1/orders", orderroute)
 //error Handler
 app.use(errorHandler);
 

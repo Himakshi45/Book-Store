@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-
-import { Wrapper } from "./pagesStyles/LoginStyle";
+import { Wrapper } from "./pagesStyles/BookPages";
 import { getBooks } from "../features/books/bookSlice";
 import BookCard from "../components/BookCard";
 
@@ -22,6 +21,7 @@ const Books = () => {
     }
     dispatch(getBooks());
   });
+
   return (
     <Wrapper>
       <div>HI</div>

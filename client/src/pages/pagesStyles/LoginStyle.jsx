@@ -1,8 +1,13 @@
 import styled from "styled-components";
 export const Wrapper = styled.section`
 .container {
-  padding: 9rem 0 5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12rem 0 8rem 0;
   text-align: center;
+  height: 100vh;
 }
 
 h2 {
@@ -10,17 +15,20 @@ h2 {
 }
 
 form {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: #f3f3f3;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 8rem;
-  margin: 2rem 0 1rem 0;
+  margin: auto;
 }
 
 form label {
   display: block;
-  font-size: 0.9rem;
+  font-size: 1.8rem;
   margin-bottom: 0.5rem;
 }
 
@@ -54,7 +62,7 @@ input {
 
 footer p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
 }
 
 @media (max-width: ${({ theme }) => theme.media.mobile}) {

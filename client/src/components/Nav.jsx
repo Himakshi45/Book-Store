@@ -4,10 +4,10 @@ import { Navbar } from "./ComponentStyles/NavStyles";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
 import { VscAccount } from "react-icons/vsc";
+import { Dropdown } from "rsuite";
 
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
-
   return (
     <Navbar>
       <div className={menuIcon ? "navbar active" : "navbar"}>
@@ -22,15 +22,6 @@ const Nav = () => {
             </Link>
           </li>
 
-          <li>
-            <Link
-              to="/about"
-              className="navbar-link "
-              onClick={() => setMenuIcon(false)}
-            >
-              About
-            </Link>
-          </li>
           <li>
             <Link
               to="/books"
@@ -50,15 +41,25 @@ const Nav = () => {
             </Link>
           </li>
           <li>
+            <Link to="/cart" className="navbar-link cart-trolley--link">
+              <FiShoppingCart className="cart-trolley" />
+              <span className="cart-total--item"> 10 </span>
+            </Link>
+          </li>
+          <li>
             <Link to="/login" className="navbar-link account ">
               <VscAccount />
             </Link>
           </li>
           <li>
-            <Link to="/cart" className="navbar-link cart-trolley--link">
-              <FiShoppingCart className="cart-trolley" />
-              <span className="cart-total--item"> 10 </span>
-            </Link>
+            <Dropdown title="Login">
+              <Dropdown.Item panel style={{ padding: 10, width: 5 }}>
+                <Link to="/myorder">My Orders</Link>
+              </Dropdown.Item>
+              <Dropdown.Item panel style={{ padding: 10, width: 5 }}>
+                <Link to="/login">Sign out</Link>
+              </Dropdown.Item>
+            </Dropdown>
           </li>
         </ul>
 

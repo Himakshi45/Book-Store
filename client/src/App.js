@@ -15,7 +15,9 @@ import {
   BookDetails,
   AddBook,
   DashBoard,
+  MyOrder
 } from "./pages";
+
 import { Cart, Header, Footer, SingleBook, Checkout } from "./components";
 
 const App = () => {
@@ -43,19 +45,23 @@ const App = () => {
       tab: "998px",
     },
   };
-
+ 
+    
+ 
   return (
     <ThemeProvider theme={theme}>
       <Router>
         <GlobalStyle />
         <Header />
+        
+  
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/books" element={<Books />} />
           <Route path="*" element={<ErrorPage />} />
           <Route path="/contact" element={<Contact />} />
-
+          <Route path="/myorder" element={<MyOrder/>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forget-password" element={<ForgotPassword />} />
