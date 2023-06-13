@@ -17,6 +17,7 @@ export const Wrapper = styled.section`
     flex-wrap: wrap;
     margin: 0 -16px;
   }
+>>>>>>> 2599441306f66f09a09409ed7283e395e14de20f
   .col-25 {
     -ms-flex: 25%; /* IE10 */
     flex: 25%;
@@ -42,12 +43,14 @@ export const Wrapper = styled.section`
   }
 
   input[type="text"] {
+>>>>>>> 2599441306f66f09a09409ed7283e395e14de20f
     width: 100%;
     margin-bottom: 20px;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 3px;
   }
+>>>>>>> 2599441306f66f09a09409ed7283e395e14de20f
   label {
     margin-bottom: 10px;
     display: block;
@@ -60,6 +63,7 @@ export const Wrapper = styled.section`
 
   .btn {
     background-color: #04aa6d;
+>>>>>>> 2599441306f66f09a09409ed7283e395e14de20f
     color: white;
     padding: 12px;
     margin: 10px 0;
