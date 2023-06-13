@@ -30,7 +30,7 @@ const Books = () => {
           {books.length > 0 ? (
             <>
               {books.map((book) => (
-                <BookCard key={book._id} book={books} />
+                <BookCard key={book._id} book={book} />
               ))}
             </>
           ) : (
