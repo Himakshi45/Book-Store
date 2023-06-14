@@ -11,13 +11,13 @@ const addBook = async (myForm, token) => {
   const response = await axios.post(API_URL, myForm, config);
   return response.data;
 };
-const getBooks = async (myForm, token) => {
+const getBooks = async (_, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
-  const response = await axios.get(API_URL_GETBOOKS, myForm, config);
+  const response = await axios.get(API_URL_GETBOOKS, config);
   return response.data;
 };
 const bookService = {

@@ -7,7 +7,7 @@ import cloudinary from "cloudinary";
 //public
 
 const getBook = asyncHandler(async (req, res) => {
-  const books = await Book.find({ user: req.user });
+  const books = await Book.find();
   res.status(200).json({
     success: true,
     books,

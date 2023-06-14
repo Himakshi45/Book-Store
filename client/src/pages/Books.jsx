@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { Wrapper } from "./pagesStyles/LoginStyle";
-import { getBooks } from "../features/books/bookSlice";
+import { Wrapper } from "./pagesStyles/BookPages";
+import { getBooks, reset } from "../features/books/bookSlice";
 import BookCard from "../components/BookCard";
 
 const Books = () => {
@@ -13,30 +13,28 @@ const Books = () => {
   );
 
   useEffect(() => {
-    if (isLoading) {
-      console.log("Fetching Books");
-    }
-
     if (isError) {
       console.log(message);
     }
     dispatch(getBooks());
-  });
+    return () => {
+      dispatch(reset());
+    };
+  }, [isError, message, dispatch]);
+
+  if (isLoading) {
+    console.log("Loading...");
+  }
+
+  console.log(` ${books}`);
+
   return (
     <Wrapper>
-      <div>HI</div>
-      <div>
-        <ul>
-          {books.length > 0 ? (
-            <>
-              {books.map((book) => (
-                <BookCard key={book._id} book={books} />
-              ))}
-            </>
-          ) : (
-            <h4>Network Error🤒</h4>
-          )}
-        </ul>
+      <h3>All Books</h3>
+      <div className="books">
+        {Object.keys(books).map((book, index) => (
+          <BookCard key={index} book={book} />
+        ))}
       </div>
     </Wrapper>
   );
