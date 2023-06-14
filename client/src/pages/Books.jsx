@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { Wrapper } from "./pagesStyles/BookPages";
 import { getBooks, reset } from "../features/books/bookSlice";
 import BookCard from "../components/BookCard";
 
@@ -29,14 +28,9 @@ const Books = () => {
   console.log(` ${books}`);
 
   return (
-    <Wrapper>
-      <h3>All Books</h3>
-      <div className="books">
-        {Object.keys(books).map((book, index) => (
-          <BookCard key={index} book={book} />
-        ))}
-      </div>
-    </Wrapper>
+    <div className="books">
+      <BookCard />
+    </div>
   );
 };
 
