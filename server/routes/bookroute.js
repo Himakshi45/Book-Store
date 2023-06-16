@@ -8,7 +8,7 @@ import {
   getBookDetail,
 } from "../controllers/bookController.js";
 
-router.route("/").get(getBook);
+router.route("/books").get(getBook);
 router.route("/book/new").post(addBook);
 router.route("/:id").patch(updateBook);
 router.route("/:id").delete(deleteBook);

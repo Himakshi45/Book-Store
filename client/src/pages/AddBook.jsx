@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button, TextField, FormLabel } from "@mui/material";
 import { Box } from "@mui/system";
-import "../App.css";
+
 import { addBooks } from "../features/books/bookSlice";
 const AddBook = () => {
   const [name, setName] = useState("");

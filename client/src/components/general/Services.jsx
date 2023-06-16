@@ -1,4 +1,4 @@
-import { Wrapper } from "./ComponentStyles/ServicesStyles";
+import { Wrapper } from "./GenComStyle/ServicesStyles";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
 import { GiReceiveMoney } from "react-icons/gi";

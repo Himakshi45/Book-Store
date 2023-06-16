@@ -1,4 +1,4 @@
-import { HeroSection, Services, Trusted } from "../components";
+import { HeroSection, Services, Trusted } from "../components/general";
 
 const Home = () => {
   const data = {

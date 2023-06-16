@@ -29,10 +29,9 @@ export const addBooks = createAsyncThunk(
 
 export const getBooks = createAsyncThunk(
   "books/getAll",
-  async (myForm, thunkAPI) => {
+  async (books, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user?.token;
-      return await bookService.getBooks(myForm, token);
+      return await bookService.getBooks(books);
     } catch (error) {
       const message =
         (error.response &&

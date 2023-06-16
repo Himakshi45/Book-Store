@@ -1,6 +1,7 @@
 import axios from "axios";
 const API_URL = "http://localhost:5000/api/h1/books/book/new";
-const API_URL_GETBOOKS = "http://localhost:5000/api/h1/books/";
+// const API_URL_GETBOOKS = "http://localhost:5000/api/h1/books/books";
+const API_URL_GETBOOKS = "https://jsonplaceholder.typicode.com/users";
 
 const addBook = async (myForm, token) => {
   const config = {

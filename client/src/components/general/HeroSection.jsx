@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { Wrapper } from "./ComponentStyles/HeroSectionStyles";
-import { Button } from "../styles/Button";
+import { Wrapper } from "./GenComStyle/HeroSectionStyles";
+import { Button } from "../../styles/Button";
 
 const HeroSection = ({ myData }) => {
   const { name } = myData;

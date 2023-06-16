@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { register, reset } from "../features/auth/authSlice";
 import { Link } from "react-router-dom";
 import { Wrapper } from "./pagesStyles/LoginStyle";
-import "../App.css";
+
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",

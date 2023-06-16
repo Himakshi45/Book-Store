@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Wrapper } from "./ComponentStyles/CartStyles";
+import { Wrapper } from "./MainComStyle/CartStyles";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 

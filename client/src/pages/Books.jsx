@@ -1,36 +1,34 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { useSelector, useDispatch } from "react-redux";
-
-import { getBooks, reset } from "../features/books/bookSlice";
-import BookCard from "../components/BookCard";
+import { getBooks } from "../features/books/bookSlice";
+// import BookCard from "../components/mainCom/BookCard";
 
 const Books = () => {
   const dispatch = useDispatch();
-  const { books, isLoading, isError, message } = useSelector(
-    (state) => state.books
-  );
+
+  const book = useSelector((state) => state.books);
 
   useEffect(() => {
-    if (isError) {
-      console.log(message);
-    }
     dispatch(getBooks());
-    return () => {
-      dispatch(reset());
-    };
-  }, [isError, message, dispatch]);
+  }, [dispatch]);
 
-  if (isLoading) {
-    console.log("Loading...");
-  }
-
-  console.log(` ${books}`);
+  console.log(` ${book}`);
 
   return (
-    <div className="books">
-      <BookCard />
-    </div>
+    <>
+      <div>
+        {book.loading && <div>Loading</div>}
+        {!book.loading && book.error ? <div> Error : {book.error} </div> : null}
+        {!book.loading && book.books.length ? (
+          <ul>
+            {book.books.map((book) => (
+              <li key={book._id}>{book.name}</li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    </>
   );
 };
 

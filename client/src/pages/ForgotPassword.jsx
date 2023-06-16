@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Wrapper } from "./pagesStyles/LoginStyle";
-import "../App.css";
+
 const ForgotPassword = () => {
   return (
     <Wrapper>

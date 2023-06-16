@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Navbar } from "./ComponentStyles/NavStyles";
+import { Navbar } from "./GenComStyle/NavStyles";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
 import { VscAccount } from "react-icons/vsc";

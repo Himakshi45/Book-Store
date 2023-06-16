@@ -16,7 +16,8 @@ import {
   AddBook,
   DashBoard,
 } from "./pages";
-import { Cart, Header, Footer, SingleBook, Checkout } from "./components";
+import { Cart, SingleBook, Checkout } from "./components/mainCom";
+import { Header, Footer } from "./components/general";
 
 const App = () => {
   const theme = {

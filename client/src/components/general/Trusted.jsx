@@ -1,4 +1,4 @@
-import { Wrapper } from "./ComponentStyles/TrustedStyles";
+import { Wrapper } from "./GenComStyle/TrustedStyles";
 
 const Trusted = () => {
   return (
