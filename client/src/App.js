@@ -16,8 +16,10 @@ import {
   AddBook,
   DashBoard,
 } from "./pages";
-import { Cart, SingleBook, Checkout } from "./components/mainCom";
+import { Cart, Checkout } from "./components/mainCom";
 import { Header, Footer } from "./components/general";
+import NewBooks from "./pages/TwoTypeOfBooks/NewBooks";
+import LatestBooks from "./pages/TwoTypeOfBooks/LatestBooks";
 
 const App = () => {
   const theme = {
@@ -52,23 +54,23 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/books" element={<Books />} />
-
-          <Route path="*" element={<ErrorPage />} />
-          <Route path="/contact" element={<Contact />} />
-
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forget-password" element={<ForgotPassword />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/addbook" element={<AddBook />} />
-          <Route path="/dashboard" element={<DashBoard />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-
+          <Route path="about" element={<About />} />
+          <Route path="books" element={<Books />}>
+            <Route index element={<LatestBooks />} />
+            <Route path="new" element={<NewBooks />} />
+            <Route path="latest" element={<LatestBooks />} />
+          </Route>
           <Route path="/books/:id" element={<BookDetails />} />
-          <Route path="/singlebook" element={<SingleBook />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<ErrorPage />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="forget-password" element={<ForgotPassword />} />
+          <Route path="admin" element={<Admin />} />
+          <Route path="addbook" element={<AddBook />} />
+          <Route path="dashboard" element={<DashBoard />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="checkout" element={<Checkout />} />
         </Routes>
         <Footer />
       </Router>

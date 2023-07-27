@@ -5,19 +5,19 @@ import {
   FormLabel,
   TextField,
 } from "@mui/material";
-import { axios } from "axios";
+
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const BookDetails = () => {
   const [inputs, setInputs] = useState();
-  const id = useParams().id;
+  const { id } = useParams();
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
     const fetchHandler = async () => {
-      await axios
+      await fetch
         .get(`http://localhost:5000/api/h1/books/${id}`)
         .then((res) => res.data)
         .then((data) => setInputs(data.book));
@@ -26,7 +26,7 @@ const BookDetails = () => {
   }, [id]);
 
   const sendRequest = async () => {
-    await axios
+    await fetch
       .put(`http://localhost:5000/api/h1/books/${id}`, {
         name: String(inputs.name),
         author: String(inputs.author),
