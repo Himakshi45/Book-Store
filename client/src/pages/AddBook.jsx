@@ -38,7 +38,7 @@ const AddBook = () => {
       const reader = new FileReader();
       reader.onload = () => {
         if (reader.readyState === 2) {
-          setImages((old) => [...old, reader.result]);
+          setImages((old) => [...old, reader.picSave]);
         }
       };
       reader.readAsDataURL(file);
